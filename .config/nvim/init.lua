@@ -136,8 +136,8 @@ require('lazy').setup({
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
     opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
+      indent = { char = '┊' },
+      whitespace = { remove_blankline_trail = false }
     },
   },
 
@@ -532,8 +532,7 @@ cmp.setup {
 --vim.cmd("let g:pandoc#biblio#use_bibtool = 1")
 --vim.cmd("let g:pandoc#completion#bib#mode = 'citeproc'")
 
-
---vim.keymap.set('n', '<leader>hm', require("harpoon.mark").add_file, { desc = '[H]arpoon [M]ark' })
+vim.keymap.set('n', '<leader>m', require("harpoon.mark").add_file, { desc = '[H]arpoon [M]ark' })
 vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon [T]oggle Quick Menu' })
 vim.keymap.set('n', '<leader>1',
   function() require("harpoon.ui").nav_file(1) end,
@@ -551,3 +550,17 @@ vim.keymap.set('n', '<leader>h4',
   function() require("harpoon.ui").nav_file(4) end,
   { desc = '[H]arpoon navigate to mark [4]' }
 )
+
+-- Share clipboard with Windows
+vim.g.clipboard = {
+  name = 'WslClipboard',
+  copy = {
+    ["+"] = 'clip.exe',
+    ["*"] = 'clip.exe',
+  },
+  paste = {
+    ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 0,
+}
