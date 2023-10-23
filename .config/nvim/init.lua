@@ -36,9 +36,6 @@ require('lazy').setup({
   'vim-pandoc/vim-pandoc',
   'vim-pandoc/vim-pandoc-syntax',
 
-  -- Detect tabstop and shiftwidth automatically
-  'tpope/vim-sleuth',
-
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -135,6 +132,7 @@ require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
     -- See `:help indent_blankline.txt`
+    main = "ibl",
     opts = {
       indent = { char = '┊' },
       whitespace = { remove_blankline_trail = false }
