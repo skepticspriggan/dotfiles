@@ -114,20 +114,6 @@ require('lazy').setup({
   },
 
   {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'onedark',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
-  },
-
-  {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     -- Enable `lukas-reineke/indent-blankline.nvim`
@@ -173,12 +159,6 @@ require('lazy').setup({
   {
     'nvim-treesitter/nvim-treesitter-context'
   },
-  {
-    'ThePrimeagen/harpoon',
-    dependencies = {
-      'nvim-lua/plenary.nvim'
-    }
-  },
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
@@ -191,7 +171,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  --{ import = 'plugins' },
+  { import = 'plugins' },
 }, {})
 
 -- required to install treesitter plugin on windows
