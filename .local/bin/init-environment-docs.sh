@@ -1,13 +1,13 @@
 #!/bin/bash
 
-SESSION="geo-data-finder"
+SESSION="docs"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   tmux attach -t $SESSION
   exit 1
 fi
 
-SESSION_PATH="$REPOS_PATH/geo-data-finder"
+SESSION_PATH="$REPOS_PATH/docs"
 tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
 
 WINDOW="editor"
@@ -19,11 +19,8 @@ WINDOW="commander"
 
 tmux new-window -n $WINDOW -c $SESSION_PATH
 tmux split-window -h -c $SESSION_PATH
-tmux split-window -v -c $SESSION_PATH
 
-tmux send -t $SESSION:$WINDOW.1 './vendor/bin/phpunit' ENTER
-tmux send -t $SESSION:$WINDOW.2 'git status'
-tmux send -t $SESSION:$WINDOW.3 'composer update'
+tmux send -t $SESSION:$WINDOW.1 'git status'
 
-tmux attach -t $SESSION:2.2
+tmux attach -t $SESSION:1.1
 

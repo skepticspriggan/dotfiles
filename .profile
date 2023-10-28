@@ -35,9 +35,12 @@ export REPOS_PATH="/mnt/c/Users/Tim/Documents/repos"
 export NOTES_PATH="/mnt/v/notes"
 export WORK_SCRIPTS_PATH="/mnt/v/notes/4-work/custom-pixels/script"
 
-alias tobias="init-environment-tobias.sh"
+alias bootstrap="init-environment-bootstrap.sh"
+alias docs="init-environment-docs.sh"
 alias file_handler="init-environment-file-handler.sh"
 alias geo_data_finder="init-environment-geo-data-finder.sh"
 alias notes="init-environment-notes.sh"
+alias tobias="init-environment-tobias.sh"
+
 alias l="ls -larth"
 alias c="clear"

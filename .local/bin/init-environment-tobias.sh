@@ -18,16 +18,16 @@ tmux send -t $SESSION:$WINDOW 'nvim .' ENTER
 WINDOW="commander"
 
 tmux new-window -n $WINDOW -c $SESSION_PATH
-tmux send -t $SESSION:$WINDOW 'sudo service docker start; cd .docker && ./setup.sh' ENTER
 
-#tmux split-window -v
-#tmux send -t $SESSION:$WINDOW.2 'docker exec -it php-apache /bin/bash'
-
+tmux split-window -v -c $SESSION_PATH
 tmux split-window -h -c $SESSION_PATH
-tmux send -t $SESSION:$WINDOW.2 'git status'
+tmux selectp -t 1
+tmux split-window -h -c $WORK_SCRIPTS_PATH
 
-tmux split-window -v -c $WORK_SCRIPTS_PATH
-tmux send -t $SESSION:$WINDOW.3 './deploy-tobias-to-production.sh'
+tmux send -t $SESSION:$WINDOW.4 'sudo service docker start; cd .docker && ./setup.sh' ENTER
+tmux send -t $SESSION:$WINDOW.1 'git status'
+tmux send -t $SESSION:$WINDOW.3 'docker exec -it php-apache /bin/bash'
+tmux send -t $SESSION:$WINDOW.2 './deploy-tobias-to-production.sh'
 
 WINDOW="monitor"
 
