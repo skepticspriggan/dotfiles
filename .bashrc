@@ -105,6 +105,18 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+alias bootstrap="init-environment-bootstrap.sh"
+alias docs="init-environment-docs.sh"
+alias dotfiles="init-environment-dotfiles.sh"
+alias file_handler="init-environment-file-handler.sh"
+alias geo_data_finder="init-environment-geo-data-finder.sh"
+alias notes="init-environment-notes.sh"
+alias tobias="init-environment-tobias.sh"
+
+alias l="ls -larth"
+alias c="clear"
+alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -115,7 +127,5 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
