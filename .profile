@@ -28,12 +28,8 @@ fi
 
 if [ -f ~/.bash_completion ]
 then
-	. ~/.bash_completion
+  . ~/.bash_completion
 fi
-
-export REPOS_PATH="/mnt/c/Users/Tim/Documents/repos"
-export NOTES_PATH="/mnt/v/notes"
-export WORK_SCRIPTS_PATH="/mnt/v/notes/4-work/custom-pixels/script"
 
 alias bootstrap="init-environment-bootstrap.sh"
 alias docs="init-environment-docs.sh"
@@ -44,3 +40,7 @@ alias tobias="init-environment-tobias.sh"
 
 alias l="ls -larth"
 alias c="clear"
+
+if [ -f $HOME/.profile_$HOSTNAME ]; then
+  source $HOME/.profile_$HOSTNAME
+fi
