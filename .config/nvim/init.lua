@@ -524,7 +524,7 @@ vim.keymap.set('n', '<leader>3',
   function() require("harpoon.ui").nav_file(3) end,
   { desc = '[H]arpoon navigate to mark [3]' }
 )
-vim.keymap.set('n', '<leader>h4',
+vim.keymap.set('n', '<leader>4',
   function() require("harpoon.ui").nav_file(4) end,
   { desc = '[H]arpoon navigate to mark [4]' }
 )
