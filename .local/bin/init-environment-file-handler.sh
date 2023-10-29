@@ -18,10 +18,7 @@ tmux send -t $SESSION:$WINDOW 'nvim .'
 WINDOW="commander"
 
 tmux new-window -n $WINDOW -c $SESSION_PATH
-tmux send -t $SESSION:$WINDOW './vendor/bin/phpunit' ENTER
-
-tmux split-window -h
-tmux send -t $SESSION:$WINDOW.2 'composer update'
+tmux send -t $SESSION:$WINDOW 'git status' ENTER
 
 tmux attach -t $SESSION:1
 
