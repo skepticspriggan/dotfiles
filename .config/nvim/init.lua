@@ -498,17 +498,3 @@ vim.keymap.set('n', '<leader>4',
   function() require("harpoon.ui").nav_file(4) end,
   { desc = '[H]arpoon navigate to mark [4]' }
 )
-
--- Share clipboard with Windows
-vim.g.clipboard = {
-  name = 'WslClipboard',
-  copy = {
-    ["+"] = 'clip.exe',
-    ["*"] = 'clip.exe',
-  },
-  paste = {
-    ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-  },
-  cache_enabled = 0,
-}
