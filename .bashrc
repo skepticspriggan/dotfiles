@@ -107,9 +107,9 @@ fi
 
 alias bootstrap="init-environment-bootstrap.sh"
 alias docs="init-environment-docs.sh"
-alias dotfiles="init-environment-dotfiles.sh"
 alias file_handler="init-environment-file-handler.sh"
 alias geo_data_finder="init-environment-geo-data-finder.sh"
+alias home="init-environment-home.sh"
 alias notes="init-environment-notes.sh"
 alias tobias="init-environment-tobias.sh"
 

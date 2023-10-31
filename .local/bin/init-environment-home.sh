@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SESSION="dotfiles"
+SESSION="home"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   tmux attach -t $SESSION
