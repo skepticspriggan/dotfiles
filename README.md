@@ -70,3 +70,9 @@ Set an alias to smoothen development:
 echo "[alias]" >> $HOME/.dotfiles/config
 echo "    push = push origin master" >> $HOME/.dotfiles/config
 ```
+
+Create profile for new machine:
+
+```bash
+touch .profile_$HOSTNAME
+```
