@@ -118,6 +118,7 @@ alias tobias="init-environment-tobias.sh"
 alias l="ls -larth"
 alias c="clear"
 alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias vpn='sudo openvpn /etc/openvpn/client-custompixels.ovpn'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
