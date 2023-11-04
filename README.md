@@ -6,6 +6,10 @@ A repository of personal machine configuration files to easily share the same co
 
 - _Minimal:_ Redundant information is removed to reduce the mental effort of finding relevant information (e.g. the prompt only shows the current path and not the username and hostname.)
 - _Soft colors:_ Soft colors are used to make it easy to distinguish between different things without over-stimulating the brain.
+- _Instant navigation:_ Navigation is as fast as can be at all levels:
+    1. Most used applications have shortcuts (e.g. alt + 1 switches to the terminal workspace in i3, alt + 2 switches to the browser workspace in i3.) No need to search using alt + tab or the activity overview.
+    2. Inside the terminal most used sessions have shortcuts (e.g. ctrl + space + N switches to the notes session in tmux.) Inside the browser most used tabs are have shortcuts (e.g. ctrl + 1 for tab marked first.)
+    3. Inside the editor most used files have shortcuts (space + 1 switches to file marked as first in nvim.) 
 
 ## Installation
 
