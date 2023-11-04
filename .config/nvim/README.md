@@ -20,10 +20,22 @@ Install a clipboard provider such as `xclip`:
 sudo apt install xclip
 ```
 
-Install build tools to compile plugins such as treesitter:
+Install build tools to compile plugins such as `treesitter`:
 
 ```bash
-nvim with apt-get install build-essential
+sudo apt-get install build-essential
+```
+
+Otherwise the following error will be shown:
+
+```
+No C compiler found! "cc", "gcc", "clang", "cl", "zig" are not executable.
+```
+
+Install ripgrep to search with grep in `telescope`:
+
+```bash
+sudo apt-get install ripgrep
 ```
 
 ## Extension
