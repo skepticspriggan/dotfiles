@@ -110,16 +110,16 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: terminal"
-set $ws2 "2: browser"
-set $ws3 "3: context"
-set $ws4 "4: communication"
-set $ws5 "5: music"
+set $ws1 "1: write"
+set $ws2 "2: read"
+set $ws3 "3: misc"
+set $ws4 "4: talk"
+set $ws5 "5: hear"
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws9 "9: secure"
+set $ws10 "10: log"
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
@@ -160,10 +160,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym l resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym j resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -187,10 +187,10 @@ bar {
 
 # lock screen
 bindsym Control+$mod+l exec "i3lock -c 000000"
+# open time log
+bindsym $mod+Shift+t exec "i3-msg 'workspace 10: log; exec brave-browser; exec xdg-open https://docs.google.com/spreadsheets/d/1e_oocwlcy7BVZpKfLxrCWOtQh1m6mY8qvByQrG2QUio/edit'"
 
-assign [class="Brave-browser"] $ws2
 assign [class="vlc"] $ws5
-assign [class="kitty"] $ws1
 
 exec kitty
 exec vlc
