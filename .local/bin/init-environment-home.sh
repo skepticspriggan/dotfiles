@@ -19,7 +19,7 @@ WINDOW="commander"
 
 tmux new-window -n $WINDOW -c $SESSION_PATH
 
-tmux send -t $SESSION:$WINDOW.1 'git status'
+tmux send -t $SESSION:$WINDOW.1 'dgit status' ENTER
 
 tmux attach -t $SESSION:2.1
 
