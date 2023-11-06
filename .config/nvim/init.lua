@@ -154,7 +154,7 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.o.clipboard = 'unnamedplus'
+--vim.o.clipboard = 'unnamedplus'
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -229,6 +229,7 @@ end, { desc = '[/] Fuzzily search in current buffer' })
 
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
 vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sa', function() require('telescope.builtin').find_files({ hidden = true }) end, { desc = '[S]earch [A]ll files' })
 vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
@@ -473,19 +474,34 @@ cmp.setup {
 
 vim.keymap.set('n', '<leader>m', require("harpoon.mark").add_file, { desc = '[H]arpoon [M]ark' })
 vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon [T]oggle Quick Menu' })
-vim.keymap.set('n', '<C-a>', --'<leader>1'
+vim.keymap.set('n', '<C-h>', --'<leader>1'
   function() require("harpoon.ui").nav_file(1) end,
   { desc = '[H]arpoon navigate to mark [1]' }
 )
-vim.keymap.set('n', '<C-s>', --'<leader>2'
+vim.keymap.set('n', '<C-t>', --'<leader>2'
   function() require("harpoon.ui").nav_file(2) end,
   { desc = '[H]arpoon navigate to mark [2]' }
 )
-vim.keymap.set('n', '<C-d>', --'<leader>3'
+vim.keymap.set('n', '<C-n>', --'<leader>3'
   function() require("harpoon.ui").nav_file(3) end,
   { desc = '[H]arpoon navigate to mark [3]' }
 )
-vim.keymap.set('n', '<C-f>', --'<leader>4'
+vim.keymap.set('n', '<C-s>', --'<leader>4'
   function() require("harpoon.ui").nav_file(4) end,
   { desc = '[H]arpoon navigate to mark [4]' }
 )
+
+vim.keymap.set('n', '<leader>ex', vim.cmd.Ex)
+
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Jump down while keeping the cursor centered in the middle' })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Jump up while keeping the cursor centered in the middle' })
+
+vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Go to next search occurence while keeping the cursor centered in the middle' })
+vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Go to previous search occurence while keeping the cursor centered in the middle' })
+
+vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste while preserving clipboard register' })
+
+vim.keymap.set({ 'n', 'x' }, '<leader>y', '"+y', { desc = 'Copy into system clipboard' })
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace the current word under the cursor' })
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = 'Make current file executable', silent = true })
