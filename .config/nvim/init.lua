@@ -499,7 +499,8 @@ vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Jump up while keeping the curs
 vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Go to next search occurence while keeping the cursor centered in the middle' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Go to previous search occurence while keeping the cursor centered in the middle' })
 
-vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste while preserving clipboard register' })
+vim.keymap.set('x', '<leader>p', '"_dp', { desc = 'Paste while preserving clipboard register' })
+vim.keymap.set('x', '<leader>P', '"_dP', { desc = 'Paste while preserving clipboard register' })
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete while preserving clipboard register' })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy into system clipboard' })
