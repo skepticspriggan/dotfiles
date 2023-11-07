@@ -3,7 +3,7 @@ BASE_SOURCE_DIRECTORY="/media/tim/m-hdd-wd-1000-big-data-master"
 YEAR=$(date +'%Y')
 MONTH=$(date +'%m')
 DAY=$(date +'%d')
-BASE_BACKUP_DIRECTORY="/media/tim/p-ssd-sam/backup-large-data-${YEAR}-${MONTH}-${DAY}-test"
+BASE_BACKUP_DIRECTORY="/media/tim/p-ssd-sam/backup-large-data-${YEAR}-${MONTH}-${DAY}"
 
 for DIRECTORY in 'books' \
   'lectures' \
