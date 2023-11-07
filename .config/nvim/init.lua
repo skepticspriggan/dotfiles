@@ -379,11 +379,11 @@ local servers = {
       telemetry = { enable = false },
     },
   },
-  --[[ phpactor = {
+  phpactor = {
     init_options = {
       ["language_server_php_cs_fixer.enabled"] = true
     }
-  }, ]]
+  },
 }
 
 -- Setup neovim lua configuration
