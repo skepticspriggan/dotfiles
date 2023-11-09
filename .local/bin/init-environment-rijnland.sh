@@ -1,19 +1,22 @@
 #!/bin/bash
 
-SESSION="rijnland-dev"
+SESSION="rijnland"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   tmux attach -t $SESSION
   exit 1
 fi
 
-SESSION_PATH="~/web/application"
-ssh -tt s2-rijnland "tmux -2 new-session -d -s $SESSION -c $SESSION_PATH" 
+tmux -2 new-session -d -s $SESSION
 
-WINDOW="editor"
+WINDOW="dev"
 
 tmux rename-window -t $SESSION:1 $WINDOW
-tmux send -t $SESSION:$WINDOW 'vim README.md' 
+tmux send -t $SESSION:$WINDOW 'ssh s2-rijnland'
+
+WINDOW="prod"
+
+tmux new-window -n $WINDOW 
+tmux send -t $SESSION:$WINDOW 'ssh s2-rijnland' ENTER
 
 tmux attach -t $SESSION
-
