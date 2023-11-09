@@ -216,6 +216,7 @@ bindsym $mod+Shift+t exec "i3-msg 'workspace 10: log; exec brave-browser; exec x
 
 assign [class="vlc"] $ws5
 
-exec kitty
-exec vlc
-exec_always feh --bg-scale ~/.wallpaper.jpg
+#exec vlc
+exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
+
+# bindsym $mod+p move workspace to output right
