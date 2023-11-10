@@ -116,7 +116,6 @@ alias notes="init-environment-notes.sh"
 alias tobias="init-environment-tobias.sh"
 
 alias l="ls -larth"
-alias c="clear"
 alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vpn='sudo openvpn /etc/openvpn/client-custompixels.ovpn'
 
@@ -134,3 +133,6 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 set -o vi
+
+alias "c=xclip"
+alias "v=xclip -o"
