@@ -35,4 +35,4 @@ if [ -f $HOME/.profile_$HOSTNAME ]; then
   source $HOME/.profile_$HOSTNAME
 fi
 
-xrandr --output $PRIMARY_OUTPUT --primary
+set-primary-output.sh

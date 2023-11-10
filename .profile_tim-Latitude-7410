@@ -1,5 +1,3 @@
 export REPOS_PATH="/home/tim/repos"
 export NOTES_PATH="/media/tim/v-ssd-tran/notes"
 export WORK_SCRIPTS_PATH="/media/tim/v-ssd-tran/notes/4-work/custom-pixels/script"
-
-source .local/bin/set-primary-output.sh
