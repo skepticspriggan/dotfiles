@@ -132,7 +132,10 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-set -o vi
+#set -o vi
 
-alias "c=xclip"
-alias "v=xclip -o"
+# copy to clipboard without new lines
+alias "c=xargs echo -n | xclip -selection clipboard"
+# copy to clipboard
+alias "cw=xclip -selection clipboard"
+alias "v=xclip -o -selection clipboard"
