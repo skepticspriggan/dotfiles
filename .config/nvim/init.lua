@@ -500,9 +500,12 @@ vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Go to next search occurence while ke
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Go to previous search occurence while keeping the cursor centered in the middle' })
 
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = 'Paste while preserving clipboard register' })
+
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete while preserving clipboard register' })
 
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy into system clipboard' })
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace the current word under the cursor' })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = 'Make current file executable', silent = true })
+vim.keymap.set("n", "<leader>cf", '<cmd>:let @+ = expand("%:p")<CR>', { desc = 'Copy filepath into clipboard', silent = true })
+vim.keymap.set("n", "<leader>w", '<cmd>:w<CR>', { desc = 'Write file to disk', silent = true })
