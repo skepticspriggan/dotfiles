@@ -7,13 +7,13 @@ if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   exit 1
 fi
 
-SESSION_PATH="$REPOS_PATH/dawbodem"
+SESSION_PATH="$REMOTE_REPOS_PATH/dawbodem"
 tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
 
 WINDOW="editor"
 
 tmux rename-window -t $SESSION:1 $WINDOW
-tmux send -t $SESSION:$WINDOW 'nvim .' ENTER
+tmux send -t $SESSION:$WINDOW 'sshfs s2-dawbodem:/home/dawbodem/domains/dev.daw-bodem.nl/application /home/tim/repos-remote/dawbodem -o cache=yes,kernel_cache,compression=no -v'
 
 WINDOW="commander"
 
@@ -22,16 +22,13 @@ tmux new-window -n $WINDOW -c $SESSION_PATH
 tmux send -t $SESSION:$WINDOW.1 'git status'
 
 WINDOW="dev"
-SESSION_PATH="~/domains/dev.daw-bodem.nl/application"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH 
+tmux new-window -n $WINDOW 
 tmux send -t $SESSION:$WINDOW 'ssh s2-dawbodem'
 
 WINDOW="prod"
-SESSION_PATH="~/domains/daw-bodem.nl/application"
-tmux new-window -n $WINDOW -c $SESSION_PATH 
-tmux send -t $SESSION:$WINDOW 'ssh s2-dawbodem' ENTER
 
-tmux send -t $SESSION:$WINDOW 'init-environment.sh' ENTER
+tmux new-window -n $WINDOW 
+tmux send -t $SESSION:$WINDOW 'ssh s2-dawbodem'
 
 tmux attach -t $SESSION
