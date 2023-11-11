@@ -7,9 +7,36 @@ A repository of personal machine configuration files to easily share the same co
 - _Minimal:_ Redundant information is removed to reduce the mental effort of finding relevant information (e.g. the prompt only shows the current path and not the username and hostname.)
 - _Soft colors:_ Soft colors are used to make it easy to distinguish between different things without over-stimulating the brain.
 - _Instant navigation:_ Navigation is as fast as can be at all levels:
-    1. Most used applications have shortcuts (e.g. alt + 1 switches to the terminal workspace in i3, alt + 2 switches to the browser workspace in i3.) No need to search using alt + tab or the activity overview.
-    2. Inside the terminal most used sessions have shortcuts (e.g. ctrl + space + N switches to the notes session in tmux.) Inside the browser most used tabs are have shortcuts (e.g. ctrl + 1 for tab marked first.)
-    3. Inside the editor most used files have shortcuts (space + 1 switches to file marked as first in nvim.) 
+    1. Most used applications have shortcuts (e.g. alt + 1 switches to the write workspace with a terminal in i3, alt + 2 switches to the read web workspace with a browser in i3.) No need to search using alt + tab or the activity overview.
+    2. Inside the terminal most used sessions have shortcuts (e.g. tmux prefix + N switches to the notes session in tmux.) Inside the browser most used tabs are have shortcuts (e.g. ctrl + 1 for tab marked first.)
+    3. Inside the editor most used files have shortcuts (ctrl + h switches to file marked as first in nvim.) 
+- _Machine independent:_ Many of the default keybindings of vim and tmux are used unaltered so remote work is almost as fast as local work.
+
+## Usage Examples
+
+_Copy output of terminal command into another terminal_
+
+Copy output of command to system clipboard without newlines by piping it into the `c` alias:
+
+```
+pwd | c
+```
+
+Paste output of command into other terminal with `ctrl + shift + v`.
+
+_Copy text from tmux in the read workspace to the browser in the read web workspace_
+
+Enter copy mode with `prefix + [`.
+
+Use vim motions to go to the desired text.
+
+Select text using visual mode with `V` to select whole line or `v` to select characters within a line.
+
+Copy the text into the system clipboard with `y`.
+
+Go to read web workspace with `alt + 2`.
+
+Paste the text into the browser with `ctrl + v`.
 
 ## Installation
 
