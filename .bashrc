@@ -134,8 +134,11 @@ fi
 
 #set -o vi
 
-# copy to clipboard without new lines
+# copy to system clipboard without new lines
 alias "c=xargs echo -n | xclip -selection clipboard"
-# copy to clipboard
-alias "cw=xclip -selection clipboard"
-alias "v=xclip -o -selection clipboard"
+# copy to system clipboard
+alias "cc=xclip -selection clipboard"
+# copy to x clipboard
+alias "ccc=xclip"
+# paste from x clipboard
+alias "v=xclip -o"
