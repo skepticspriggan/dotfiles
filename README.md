@@ -10,7 +10,7 @@ A repository of personal machine configuration files to easily share the same co
     1. Most used applications have shortcuts (e.g. alt + 1 switches to the write workspace with a terminal in i3, alt + 2 switches to the read web workspace with a browser in i3.) No need to search using alt + tab or the activity overview.
     2. Inside the terminal most used sessions have shortcuts (e.g. tmux prefix + N switches to the notes session in tmux.) Inside the browser most used tabs are have shortcuts (e.g. ctrl + 1 for tab marked first.)
     3. Inside the editor most used files have shortcuts (ctrl + h switches to file marked as first in nvim.) 
-- _Machine independent:_ Many of the default keybindings of vim and tmux are used unaltered so remote work is almost as fast as local work.
+- _Machine independent:_ Reasonable defaults are kept to make working on other machines almost as smooth as personal ones.
 
 ## Usage Examples
 
@@ -91,8 +91,8 @@ dgit config --local status.showUntrackedFiles no
 Set a user name and email in the repo to enable development:
 
 ```bash
-dgit config --global user.name = "Skeptic Spriggan"
-dgit config --global user.email = "skepticspriggan@protonmail.com"
+dgit config --local user.name = "Skeptic Spriggan"
+dgit config --local user.email = "skepticspriggan@protonmail.com"
 ```
 
 Set an alias to smoothen development:
