@@ -33,11 +33,12 @@ ethernet _first_ {
 
 battery all {
         format = "%status %percentage"
-	format_percentage = "%.00f%s"
+	integer_battery_capacity = true
 	status_bat = "🔋"
 	status_chr = "⚡"
 	low_threshold = 10
 	threshold_type = "percentage"
+	format_down = ''
 }
 
 disk "/" {
