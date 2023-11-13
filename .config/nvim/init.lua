@@ -463,19 +463,19 @@ cmp.setup {
 
 vim.keymap.set('n', '<leader>m', require("harpoon.mark").add_file, { desc = '[H]arpoon [M]ark' })
 vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon [T]oggle Quick Menu' })
-vim.keymap.set('n', '<C-h>', --'<leader>1'
+vim.keymap.set('n', '<C-j>', --'<leader>1'
   function() require("harpoon.ui").nav_file(1) end,
   { desc = '[H]arpoon navigate to mark [1]' }
 )
-vim.keymap.set('n', '<C-t>', --'<leader>2'
+vim.keymap.set('n', '<C-k>', --'<leader>2'
   function() require("harpoon.ui").nav_file(2) end,
   { desc = '[H]arpoon navigate to mark [2]' }
 )
-vim.keymap.set('n', '<C-n>', --'<leader>3'
+vim.keymap.set('n', '<C-h>', --'<leader>3'
   function() require("harpoon.ui").nav_file(3) end,
   { desc = '[H]arpoon navigate to mark [3]' }
 )
-vim.keymap.set('n', '<C-s>', --'<leader>4'
+vim.keymap.set('n', '<C-n>', --'<leader>4'
   function() require("harpoon.ui").nav_file(4) end,
   { desc = '[H]arpoon navigate to mark [4]' }
 )
@@ -496,7 +496,9 @@ vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy into system clip
 
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = 'Replace the current word under the cursor' })
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { desc = 'Make current file executable', silent = true })
-vim.keymap.set("n", "<leader>cf", '<cmd>:let @+ = expand("%:p")<CR>', { desc = 'Copy filepath into clipboard', silent = true })
+vim.keymap.set("n", "<leader>cfp", '<cmd>:let @+ = expand("%:p")<CR>', { desc = 'Copy filepath into clipboard', silent = true })
+vim.keymap.set("n", "<leader>cfn", '<cmd>:let @+ = expand("%:t")<CR>', { desc = 'Copy filename into clipboard', silent = true })
+vim.keymap.set("n", "<leader>crfp", '<cmd>:let @+ = expand("%")<CR>', { desc = 'Copy relative filepath into clipboard', silent = true })
 vim.keymap.set("n", "<leader>w", '<cmd>:w<CR>', { desc = 'Write file to disk', silent = true })
 vim.keymap.set("n", "J", "mzJ`z", { desc = 'Append line below current line to current line with a space in between'})
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = 'Move selection down and auto indent' })
