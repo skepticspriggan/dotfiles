@@ -14,7 +14,7 @@ WINDOW="editor"
 
 tmux rename-window -t $SESSION:1 $WINDOW
 sleep 0.3
-tmux send -t $SESSION:$WINDOW 'sshfs mx10-docsign-dev:/var/www/clients/client13/web22/web/application /home/tim/repos-remote/docsign -o cache=yes,kernel_cache,compression=no -v'
+tmux send -t $SESSION:$WINDOW "sshfs mx10-docsign-dev:/var/www/clients/client13/web22/web/application $REMOTE_REPOS_PATH/docsign -o cache=yes,kernel_cache,compression=no -v"
 
 WINDOW="dev"
 
