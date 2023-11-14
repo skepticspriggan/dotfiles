@@ -112,6 +112,7 @@ alias dawbodem="init-environment-dawbodem.sh"
 alias file_handler="init-environment-file-handler.sh"
 alias geo_data_finder="init-environment-geo-data-finder.sh"
 alias home="init-environment-home.sh"
+alias rijnland="init-environment-rijnland.sh"
 alias notes="init-environment-notes.sh"
 alias tobias="init-environment-tobias.sh"
 

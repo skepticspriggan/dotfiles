@@ -14,7 +14,7 @@ WINDOW="editor"
 
 tmux rename-window -t $SESSION:1 $WINDOW
 sleep 0.3;
-tmux send -t $SESSION:$WINDOW 'sshfs s2-rijnland:/home/landbouwrijnland/domains/dev.landbouwportaalrijnland.nl/application /home/tim/repos-remote/rijnland -o cache=yes,kernel_cache,compression=no -v'
+tmux send -t $SESSION:$WINDOW "sshfs s2-rijnland:/home/landbouwrijnland/domains/dev.landbouwportaalrijnland.nl/application $REMOTE_REPOS_PATH/rijnland -o cache=yes,kernel_cache,compression=no -v"
 
 WINDOW="dev"
 
