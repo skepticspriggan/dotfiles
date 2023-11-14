@@ -8,7 +8,7 @@ if grep -qw "DP-3" <<< "$OUTPUTS"; then
   xrandr --output "DP-3" --primary
 elif grep -q "DP-1" <<< "$OUTPUTS"; then
   #echo 'set DP-1 as primary output'
-  xrandr --output "DP-1"
+  xrandr --output "DP-1" --primary
 else
   #echo "set default $DEFAULT as primary output"
   xrandr --output $DEFAULT --primary
