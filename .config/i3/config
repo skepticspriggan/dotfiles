@@ -116,11 +116,11 @@ bindsym $mod+a focus parent
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1: write"
 set $ws2 "2: read web"
-set $ws3 "3: read local"
-set $ws4 "4: talk"
+set $ws3 "3: talk"
+set $ws4 "4: read local"
 set $ws5 "5: "
 set $ws6 "6"
-set $ws7 "7: misc"
+set $ws7 "7: see"
 set $ws8 "8: hear"
 set $ws9 "9: secure"
 set $ws10 "10: log"
@@ -214,7 +214,7 @@ bindsym mod4+e exec "nautilus"
 # open time log
 bindsym $mod+Shift+t exec "i3-msg 'workspace 10: log; exec brave-browser; exec xdg-open https://docs.google.com/spreadsheets/d/1e_oocwlcy7BVZpKfLxrCWOtQh1m6mY8qvByQrG2QUio/edit'"
 
-assign [class="vlc"] $ws5
+assign [class="vlc"] $ws8
 
 #exec vlc
 exec_always --no-startup-id feh --bg-scale ~/.wallpaper.jpg
