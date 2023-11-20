@@ -65,12 +65,12 @@ path_exists VPN {
 }
 
 tztime local {
-        format = "%Y-%m-%d %H:%M:%S"
+        format = "%m-%d %H:%M:%S"
 }
 
 volume master {
         format = "♪ %volume"
-        format_muted = "♪ muted (%volume)"
+        format_muted = "♪ %volume muted"
         device = "default"
         mixer = "Master"
         mixer_idx = 0
