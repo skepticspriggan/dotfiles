@@ -9,7 +9,11 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+# set left alt as mod key
+# set $mod Mod1
+
+# set super key as mod key
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -98,7 +102,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+i layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -208,7 +212,7 @@ bindsym Ctrl+$mod+Print exec --release --no-startup-id maim --window $(xdotool g
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date --iso-8601=seconds)"
 
 # lock screen
-bindsym mod4+l exec "i3lock -c 000000"
+bindsym mod4+p exec "i3lock -c 000000"
 # open file explorer
 bindsym mod4+e exec "nautilus"
 # open time log
