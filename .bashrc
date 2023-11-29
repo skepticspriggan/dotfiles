@@ -118,6 +118,7 @@ alias home="init-environment-home.sh"
 alias rijnland="init-environment-rijnland.sh"
 alias notes="init-environment-notes.sh"
 alias tobias="init-environment-tobias.sh"
+alias qmk_firmware="init-environment-qmk-firmware.sh"
 
 alias l="ls -larth"
 alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
