@@ -20,7 +20,7 @@ WINDOW="commander"
 
 tmux new-window -n $WINDOW -c $SESSION_PATH
 sleep 0.2
-tmux send -t $SESSION:$WINDOW 'qmk compile -kb crkb/rev1 -km skepticspriggan -e CONVERT_TO=elite_pi'
+tmux send -t $SESSION:$WINDOW 'qmk compile -kb crkbd/rev1 -km skepticspriggan -e CONVERT_TO=elite_pi'
 
 tmux attach -t $SESSION:1
 
