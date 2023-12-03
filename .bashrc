@@ -123,7 +123,7 @@ alias qmk_firmware="init-tmux-qmk-firmware.sh"
 alias l="ls -larth"
 alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vpn='sudo openvpn /etc/openvpn/client-custompixels.ovpn'
-alias it='init-tmux.sh'
+alias tf='tmux-fzf.sh'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
