@@ -326,7 +326,7 @@ local on_attach = function(_, bufnr)
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-  nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+  --nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -451,15 +451,13 @@ cmp.setup {
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
---vim.cmd("let g:pandoc#modules#disabled = ['folding']")
+vim.cmd("let g:pandoc#modules#disabled = ['folding']")
 --vim.cmd("let g:pandoc#modules#enabled = ['command', 'bibliographies']")
-
---vim.cmd("let g:pandoc#biblio#sources = 'g'")
---vim.cmd("let g:pandoc#biblio#bibs = ['D:/test.bib']")
-
---vim.cmd("let g:pandoc#biblio#sources = 'l'")
---vim.cmd("let g:pandoc#biblio#use_bibtool = 1")
---vim.cmd("let g:pandoc#completion#bib#mode = 'citeproc'")
+vim.cmd("let g:pandoc#biblio#sources = 'l'")
+vim.cmd("let g:pandoc#biblio#use_bibtool = 1")
+vim.cmd("let g:pandoc#completion#bib#mode = 'citeproc'")
+vim.cmd("let g:pandoc#spell#enabled = 0")
+vim.cmd("set omnifunc=syntaxcomplete#Complete")
 
 vim.keymap.set('n', '<leader>m', require("harpoon.mark").add_file, { desc = '[H]arpoon [M]ark' })
 vim.keymap.set('n', '<leader>ht', require("harpoon.ui").toggle_quick_menu, { desc = '[H]arpoon [T]oggle Quick Menu' })
