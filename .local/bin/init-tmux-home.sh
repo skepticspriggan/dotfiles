@@ -3,7 +3,11 @@
 SESSION="home"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  tmux attach -t $SESSION
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    tmux switch-client -t $SESSION
+  else
+    tmux attach -t $SESSION
+  fi
   exit 1
 fi
 
@@ -18,9 +22,12 @@ tmux send -t $SESSION:$WINDOW 'nvim .' ENTER
 
 WINDOW="commander"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.1 'dgit status' ENTER
 
-tmux attach -t $SESSION:2.1
-
+if [ "$TERM_PROGRAM" = tmux ]; then
+  tmux switch-client -t $SESSION:2.1
+else
+  tmux attach -t $SESSION:2.1
+fi

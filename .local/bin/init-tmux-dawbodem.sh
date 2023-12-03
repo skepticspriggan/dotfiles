@@ -3,7 +3,11 @@
 SESSION="dawbodem"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  tmux attach -t $SESSION
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    tmux switch-client -t $SESSION
+  else
+    tmux attach -t $SESSION
+  fi
   exit 1
 fi
 
@@ -18,20 +22,24 @@ tmux send -t $SESSION:$WINDOW 'sshfs s2-dawbodem:/home/dawbodem/domains/dev.daw-
 
 WINDOW="commander"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.1 'git status'
 
 WINDOW="dev"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh s2-dawbodem'
 
 WINDOW="prod"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh s2-dawbodem'
 
-tmux attach -t $SESSION
+if [ "$TERM_PROGRAM" = tmux ]; then
+  tmux switch-client -t $SESSION
+else
+  tmux attach -t $SESSION
+fi

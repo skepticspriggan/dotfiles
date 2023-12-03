@@ -4,7 +4,11 @@ SESSION="statusportaal"
 SESSION_PATH="$REMOTE_REPOS_PATH/statusportaal"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  tmux attach -t $SESSION
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    tmux switch-client -t $SESSION
+  else
+    tmux attach -t $SESSION
+  fi
   exit 1
 fi
 
@@ -18,20 +22,24 @@ tmux send -t $SESSION:$WINDOW "sshfs mx10-statusportaal-dev:/var/www/clients/cli
 
 WINDOW="dev"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh mx10-statusportaal-dev'
 
 WINDOW="stage"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh mx10-statusportaal-stage'
 
 WINDOW="prod"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh mx10-statusportaal-prod'
 
-tmux attach -t $SESSION
+if [ "$TERM_PROGRAM" = tmux ]; then
+  tmux switch-client -t $SESSION
+else
+  tmux attach -t $SESSION
+fi

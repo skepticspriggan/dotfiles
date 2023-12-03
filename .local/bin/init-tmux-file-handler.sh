@@ -3,7 +3,11 @@
 SESSION="file-handler"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  tmux attach -t $SESSION
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    tmux switch-client -t $SESSION
+  else
+    tmux attach -t $SESSION
+  fi
   exit 1
 fi
 
@@ -18,9 +22,12 @@ tmux send -t $SESSION:$WINDOW 'nvim .'
 
 WINDOW="commander"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.2
 tmux send -t $SESSION:$WINDOW 'git status'
 
-tmux attach -t $SESSION:1
-
+if [ "$TERM_PROGRAM" = tmux ]; then
+  tmux switch-client -t $SESSION:1
+else
+  tmux attach -t $SESSION:1
+fi

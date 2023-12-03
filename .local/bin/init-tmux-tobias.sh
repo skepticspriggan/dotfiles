@@ -3,7 +3,11 @@
 SESSION="tobias"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  tmux attach -t $SESSION
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    tmux switch-client -t $SESSION
+  else
+    tmux attach -t $SESSION
+  fi
   exit 1
 fi
 
@@ -18,7 +22,7 @@ tmux send -t $SESSION:$WINDOW 'nvim .'
 
 WINDOW="commander"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH
+tmux new-window -n $WINDOW -c $SESSION_PATH -t $SESSION:
 
 tmux split-window -v -c $SESSION_PATH
 tmux split-window -h -c $SESSION_PATH
@@ -36,20 +40,24 @@ tmux send -t $SESSION:$WINDOW.2 './deploy-tobias-to-production.sh'
 
 WINDOW="monitor"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH 
+tmux new-window -n $WINDOW -c $SESSION_PATH -t $SESSION:
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'docker exec -it php-apache /bin/bash -c "tail -f -n 100 /var/www/logs/app.log | grep "error""'
 
 WINDOW="stage"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH 
+tmux new-window -n $WINDOW -c $SESSION_PATH -t $SESSION:
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-tobias-stage'
 
 WINDOW="prod"
 
-tmux new-window -n $WINDOW -c $SESSION_PATH 
+tmux new-window -n $WINDOW -c $SESSION_PATH -t $SESSION:
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-tobias-prod'
 
-tmux attach -t $SESSION
+if [ "$TERM_PROGRAM" = tmux ]; then
+  tmux switch-client -t $SESSION
+else
+  tmux attach -t $SESSION
+fi

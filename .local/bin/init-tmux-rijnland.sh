@@ -4,7 +4,11 @@ SESSION="rijnland"
 SESSION_PATH="$REMOTE_REPOS_PATH/rijnland"
 
 if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  tmux attach -t $SESSION
+  if [ "$TERM_PROGRAM" = tmux ]; then
+    tmux switch-client -t $SESSION
+  else
+    tmux attach -t $SESSION
+  fi
   exit 1
 fi
 
@@ -18,20 +22,24 @@ tmux send -t $SESSION:$WINDOW "sshfs s2-rijnland:/home/landbouwrijnland/domains/
 
 WINDOW="dev"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh s2-rijnland'
 
 WINDOW="stage"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh s2-rijnland'
 
 WINDOW="prod"
 
-tmux new-window -n $WINDOW 
+tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh s2-rijnland'
 
-tmux attach -t $SESSION
+if [ "$TERM_PROGRAM" = tmux ]; then
+  tmux switch-client -t $SESSION
+else
+  tmux attach -t $SESSION
+fi
