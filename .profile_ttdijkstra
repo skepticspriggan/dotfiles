@@ -1,0 +1,5 @@
+export REPOS_PATH="/home/tim/repos"
+export REMOTE_REPOS_PATH="/home/tim/remote-repos"
+export NOTES_DIRECTORY="/home/tim/repos/notes"
+export WORK_SCRIPTS_PATH="/media/tim/v-ssd-tran/notes/4-work/custom-pixels/script"
+export EXPORT_DIRECTORY="/home/tim/exports"
