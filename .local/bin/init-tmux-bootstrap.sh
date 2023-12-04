@@ -1,8 +1,10 @@
 #!/bin/bash
 
-SESSION="bootstrap"
+#set -euxo pipefail
 
-if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
+SESSION="bootstrap"
+ 
+if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   if [ "$TERM_PROGRAM" = tmux ]; then
     tmux switch-client -t $SESSION
   else

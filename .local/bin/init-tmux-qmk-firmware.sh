@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# set -euxo pipefail
+#set -euxo pipefail
 
 SESSION="qmk-firmware"
 
-if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
+if pgrep -xo "tmux: server" > /dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   if [ "$TERM_PROGRAM" = tmux ]; then
     tmux switch-client -t $SESSION
   else
