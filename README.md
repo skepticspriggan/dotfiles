@@ -74,7 +74,7 @@ Please move or remove them before you can switch branches.
 Aborting
 ```
 
-This is because your $HOME folder might already have some stock configuration files which would be overwritten by Git. The solution is simple: back up the files if you care about them, remove them if you don't care.
+This is because your \$HOME folder might already have some stock configuration files which would be overwritten by Git. The solution is simple: back up the files if you care about them, remove them if you don't care.
 
 Re-run the check out if you had problems:
 
