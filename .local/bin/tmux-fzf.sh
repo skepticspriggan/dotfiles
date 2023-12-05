@@ -5,7 +5,7 @@
 if [[ $# -eq 1 ]]; then
   project=$1
 else
-  project=$(cat ~/projects.txt | fzf)
+  project=$(cat ~/.config/tmux/projects.txt | fzf)
 fi
 
 if [[ -z $project ]]; then
