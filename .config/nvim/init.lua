@@ -504,6 +504,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = 'Move selection up and aut
 vim.keymap.set("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = 'Correct last spell mistake', noremap = true })
 vim.keymap.set("n", "<leader>m2p", "<cmd>silent !markdown-to-pdf.sh %<CR>", { desc = 'Convert markdown file to PDF' })
 vim.keymap.set("n", "<leader>oe", "<cmd>silent !open-last-export.sh &<CR>", { desc = 'Open last export' })
+vim.keymap.set("i", "<C-Del>", "X<Esc>c/\\S<CR>", { desc = 'Delete until next whitespace' })
+vim.keymap.set("i", "<C-x>", "X<Esc>c/\\S<CR><Esc>gJi", { desc = 'Delete until and including next whitespace' })
 
 P = function(v)
   vim.print(v)
