@@ -2,7 +2,7 @@
 
 SESSION="docs"
 
-if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
+if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep -w $SESSION)" ]]; then
   if [ "$TERM_PROGRAM" = tmux ]; then
     tmux switch-client -t $SESSION
   else
