@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-tmux_session_exists() {
+tmux_exists() {
   pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $1)" ]]
 }
