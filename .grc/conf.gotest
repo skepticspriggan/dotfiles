@@ -1,20 +1,20 @@
 regexp==== RUN .*
-colour=blue
+colour="\033[38;5;81m"
 -
 regexp=--- PASS: .*
-colour=green
+colour="\033[38;5;157m"
 -
 regexp=^PASS$
-colour=green
+colour="\033[38;5;157m"
 -
 regexp=^(ok|\?) .*
 colour=magenta
 -
 regexp=FAIL
-colour=red
+colour="\033[38;5;217m"
 -
 regexp=--- FAIL: .*
-colour=red
+colour="\033[38;5;217m"
 -
 regexp=[^\s]+\.go(:\d+)?
-colour=cyan
+colour="\033[38;5;81m"
