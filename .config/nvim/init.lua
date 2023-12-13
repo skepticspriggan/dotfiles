@@ -506,6 +506,7 @@ vim.keymap.set("n", "<leader>m2p", "<cmd>silent !markdown-to-pdf.sh %<CR>", { de
 vim.keymap.set("n", "<leader>oe", "<cmd>silent !open-last-export.sh &<CR>", { desc = 'Open last export' })
 vim.keymap.set("i", "<C-Del>", "X<Esc>c/\\S<CR>", { desc = 'Delete until next whitespace' })
 vim.keymap.set("i", "<C-x>", "X<Esc>c/\\S<CR><Esc>gJi", { desc = 'Delete until and including next whitespace' })
+vim.keymap.set("n", "<leader>u", "/\\u<CR>", { desc = 'Move to next upper case letter' })
 
 P = function(v)
   vim.print(v)
