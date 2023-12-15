@@ -33,6 +33,8 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
 
+  'tpope/vim-unimpaired',
+
   'vim-pandoc/vim-pandoc',
   'vim-pandoc/vim-pandoc-syntax',
 
