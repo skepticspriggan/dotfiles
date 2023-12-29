@@ -10,7 +10,7 @@ if tmux_exists $SESSION; then
   exit 1
 fi
 
-SESSION_PATH="$REPOS_PATH/advent-of-code"
+SESSION_PATH="$REPOS_PATH/advent-of-code/2023/03"
 tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
 
 WINDOW="editor"
@@ -26,7 +26,7 @@ tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 tmux split-window -h -c $SESSION_PATH
 
 sleep 0.3
-tmux send -t $SESSION:$WINDOW.2 'grc go test -v --run Part1 .'
+tmux send -t $SESSION:$WINDOW.1 'make test'
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.2 'git status'
 sleep 0.3

@@ -4,9 +4,9 @@ SESSION="notes"
 
 if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
   if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
+    tmux switch-client -t $SESSION:1
   else
-    tmux attach -t $SESSION
+    tmux attach -t $SESSION:1
   fi
   exit 1
 fi
@@ -27,7 +27,7 @@ sleep 0.3
 tmux send -t $SESSION:$WINDOW ''
 
 if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION
+  tmux switch-client -t $SESSION:1
 else
-  tmux attach -t $SESSION
+  tmux attach -t $SESSION:1
 fi
