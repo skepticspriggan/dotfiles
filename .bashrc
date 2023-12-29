@@ -138,6 +138,8 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+bind -m emacs-standard '"\C-e": " \C-b\C-k \C-u`__fzf_cd__`\e\C-e\er\C-m\C-y\C-h\e \C-y\ey\C-x\C-x\C-d"'
+
 #set -o vi
 
 # copy to system clipboard without new lines
