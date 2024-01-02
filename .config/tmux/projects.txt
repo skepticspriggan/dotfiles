@@ -14,5 +14,6 @@ opinionfirst
 qmk-firmware
 rijnland
 statusportaal
+tankcollect
 tobias
 tower-of-hanoi
