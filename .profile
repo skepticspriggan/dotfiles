@@ -26,6 +26,10 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+if [ -d "$HOME/repos/notes-custom-pixels/bin" ] ; then
+    PATH="$HOME/repos/notes-custom-pixels/bin:$PATH"
+fi
+
 if [ -f ~/.bash_completion ]
 then
   . ~/.bash_completion
