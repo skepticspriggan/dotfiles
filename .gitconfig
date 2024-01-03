@@ -1,0 +1,8 @@
+[credential]
+	helper = cache
+[safe]
+	directory = /home/tim/repos-remote/dawbodem
+[init]
+	defaultBranch = master
+[core]
+	editor = nvim
