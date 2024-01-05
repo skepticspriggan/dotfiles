@@ -43,3 +43,21 @@ vim.keymap.set("n", "<leader>oe", "<cmd>silent !open-last-export.sh &<CR>", { de
 vim.keymap.set("i", "<C-Del>", "X<Esc>c/\\S<CR>", { desc = 'Delete until next whitespace' })
 vim.keymap.set("i", "<C-d>", "X<Esc>c/\\S<CR><Esc>gJi", { desc = 'Delete until and including next whitespace' })
 vim.keymap.set("n", "<leader>u", "/\\u<CR>", { desc = 'Move to next upper case letter' })
+
+vim.keymap.set("n", "<leader>gf", function()
+  local basename = vim.fn.expand("<cfile>:t:r")
+  local directory = vim.fn.expand('%:p:h')
+  --local cmd = 'grep -Rl "' .. basename ..'" .config/nvim | head -n 1'
+  local cmd = 'find ' .. directory .. ' -type f -name "' .. basename .. '*" | head -n 1'
+  --print(cmd)
+  local file = io.popen(cmd, "r") -- runs command
+  if file == nil then
+    return
+  end
+  local result = file:read("*a") -- read output of command
+  result = (string.gsub(result, "%s*$", ""))
+  --print(result)
+  file:close()
+  --local file = "/home/tim/.config/nvim/lua/keymaps.lua"
+  vim.cmd({ cmd = 'edit', args = { result }, bang = true })
+end, { desc = 'Open nearest file with basename of word under the cursor' })
