@@ -21,7 +21,21 @@ return {
     local luasnip = require 'luasnip'
     require('luasnip.loaders.from_vscode').lazy_load()
     require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
-    luasnip.config.setup {}
+    luasnip.config.setup {
+      updateevents = "TextChanged,TextChangedI" --updates all nodes when typing in one 
+    }
+
+    vim.keymap.set({"i", "s"}, "<C-j>", function() luasnip.expand_or_jump() end, {silent = true})
+    vim.keymap.set({"i", "s"}, "<C-k>", function() luasnip.jump(-1) end, {silent = true})
+
+    vim.keymap.set({"i", "s"}, "<C-l>", function()
+      if luasnip.choice_active() then
+        luasnip.change_choice(1)
+      end
+    end, {silent = true})
+
+
+    vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/snippets/php.lua<CR>")
 
     cmp.setup {
       snippet = {
