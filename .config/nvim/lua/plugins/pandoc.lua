@@ -1,7 +1,6 @@
 -- configure citation auto complete
 return {
   'vim-pandoc/vim-pandoc',
-  event = "BufEnter *.md",
   config = function()
     vim.cmd("let g:pandoc#modules#disabled = ['folding']")
     --vim.cmd("let g:pandoc#modules#enabled = ['command', 'bibliographies']")
