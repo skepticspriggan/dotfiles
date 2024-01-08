@@ -3,7 +3,6 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'tpope/vim-unimpaired',
-  'vim-pandoc/vim-pandoc-syntax',
   -- show pending keybinds
   { 'folke/which-key.nvim',  opts = {} },
   -- comment visual regions/lines with `gc`
@@ -11,4 +10,8 @@ require('lazy').setup({
   'nvim-treesitter/nvim-treesitter-context',
 
   { import = 'plugins' },
-}, {})
+}, {
+  dev = {
+    path = "~/.config/nvim/scratch",
+  }
+})

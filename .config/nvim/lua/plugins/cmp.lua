@@ -14,13 +14,14 @@ return {
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lua',
+
+    'skepticspriggan/cmp-reference',
   },
   config = function()
     -- [[ Configure nvim-cmp ]]
     -- See `:help cmp`
     local cmp = require 'cmp'
     local luasnip = require 'luasnip'
-    require('luasnip.loaders.from_vscode').lazy_load()
     require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
     luasnip.config.setup {
       updateevents = "TextChanged,TextChangedI" --updates all nodes when typing in one 
@@ -74,6 +75,12 @@ return {
         end, { 'i', 's' }),
       },
       sources = {
+        {
+          name = 'cmp-reference',
+          option = {
+            file = os.getenv("REPOS_PATH") .. "/notes/7-source/citations.bib"
+          }
+        },
         { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
         { name = 'luasnip' },
