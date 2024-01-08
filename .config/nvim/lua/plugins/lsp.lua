@@ -55,6 +55,17 @@ return {
         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
       end, '[W]orkspace [L]ist Folders')
 
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+          signs = {
+            severity_limit = "Hint",
+          },
+          virtual_text = {
+            severity_limit = "Warning",
+          },
+        }
+      )
+
       nmap('<leader>f', function()
         vim.lsp.buf.format()
       end, '[F]ormat current buffer with LSP')
