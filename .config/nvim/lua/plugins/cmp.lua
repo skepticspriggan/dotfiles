@@ -11,8 +11,9 @@ return {
     -- Adds LSP completion capabilities
     'hrsh7th/cmp-nvim-lsp',
 
-    -- Adds a number of user-friendly snippets
-    'rafamadriz/friendly-snippets',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-nvim-lua',
   },
   config = function()
     -- [[ Configure nvim-cmp ]]
@@ -33,9 +34,6 @@ return {
         luasnip.change_choice(1)
       end
     end, {silent = true})
-
-
-    vim.keymap.set("n", "<leader><leader>s", "<cmd>source ~/.config/nvim/lua/snippets/php.lua<CR>")
 
     cmp.setup {
       snippet = {
@@ -77,8 +75,10 @@ return {
       },
       sources = {
         { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
         { name = 'luasnip' },
         { name = 'path' },
+        { name = 'buffer', keyword_length = 5 },
       },
     }
   end
