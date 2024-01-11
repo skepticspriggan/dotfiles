@@ -125,6 +125,13 @@ alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vpn='sudo openvpn /etc/openvpn/client-custompixels.ovpn'
 alias tf='tmux-fzf.sh'
 
+alias gs='git status'
+alias gss='git status -s'
+alias gcm='git commit -m '
+alias gd='git diff'
+alias gl='git log --oneline'
+alias dgs='dgit status'
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
