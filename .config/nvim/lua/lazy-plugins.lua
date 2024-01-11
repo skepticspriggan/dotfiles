@@ -8,6 +8,7 @@ require('lazy').setup({
   -- comment visual regions/lines with `gc`
   { 'numToStr/Comment.nvim', opts = {} },
   'nvim-treesitter/nvim-treesitter-context',
+  'ThePrimeagen/vim-be-good',
 
   { import = 'plugins' },
 }, {
