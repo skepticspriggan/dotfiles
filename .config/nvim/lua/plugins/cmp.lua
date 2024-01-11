@@ -78,7 +78,13 @@ return {
         {
           name = 'cmp-reference',
           option = {
-            file = os.getenv("REPOS_PATH") .. "/notes/7-source/citations.bib"
+            file = os.getenv("REPOS_PATH") .. "/notes/7-source/citations.bib",
+            format =
+              [[
+                **{{title}}**
+                *{{year}}*
+                {{author}}
+              ]]
           }
         },
         { name = 'nvim_lsp' },
