@@ -6,3 +6,5 @@
 	defaultBranch = master
 [core]
 	editor = nvim
+[pull]
+	rebase = true
