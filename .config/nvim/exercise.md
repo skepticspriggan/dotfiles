@@ -66,3 +66,15 @@ _Delete all 'bar's_
 ```
 foo bar foo foo bar bar foo foo bar foo
 ```
+
+_Duplicate and delete lines 10x_
+
+```
+A sentence of words.
+```
+
+Notes:
+
+- Group the keys together in one fluid motion
+  - r-shift, v, y, p
+  - r-shift, v, d
