@@ -125,12 +125,12 @@ alias dgit='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias vpn='sudo openvpn /etc/openvpn/client-custompixels.ovpn'
 alias tf='tmux-fzf.sh'
 
-alias gs='git status'
 alias gss='git status -s'
 alias gcm='git commit -m '
 alias gd='git diff'
 alias gl='git log --oneline'
-alias dgs='dgit status'
+alias dgs='dgit status -s'
+alias dgd='dgit diff'
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -145,7 +145,8 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-bind -m emacs-standard '"\C-e": " \C-b\C-k \C-u`__fzf_cd__`\e\C-e\er\C-m\C-y\C-h\e \C-y\ey\C-x\C-x\C-d"'
+bind -m emacs-standard '"\C-g": " \C-b\C-k \C-u`__fzf_cd__`\e\C-e\er\C-m\C-y\C-h\e \C-y\ey\C-x\C-x\C-d"'
+bind -m emacs-standard -x '"\C-f": "tmux-fzf.sh"'
 
 #set -o vi
 
