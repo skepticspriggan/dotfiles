@@ -23,6 +23,9 @@ return {
           -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
           find_command = { "rg", "--files", "--hidden", "--glob", "!**/.{git,dotfiles}/*", "--follow" },
         },
+        live_grep = {
+
+        },
       },
       defaults = {
         mappings = {
@@ -30,6 +33,16 @@ return {
             ['<C-u>'] = false,
             ['<C-d>'] = false,
           },
+        },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--follow"
         },
       },
     }
