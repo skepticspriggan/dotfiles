@@ -18,4 +18,5 @@ statusportaal
 tankcollect
 tobias
 tower-of-hanoi
+yii2
 yii2-post-log-target
