@@ -28,13 +28,13 @@ tmux send -t $SESSION:$WINDOW.1 'git status'
 
 WINDOW="dev"
 
-tmux new-window -n $WINDOW -t $SESSION:
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh s3-opinionfirst'
 
 WINDOW="prod"
 
-tmux new-window -n $WINDOW -t $SESSION:
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh s3-opinionfirst'
 
