@@ -7,7 +7,7 @@ A repository of personal machine configuration files to easily share the same co
 - _Minimal:_ Redundant information is removed to reduce the mental effort of finding relevant information (e.g. the prompt only shows the current path and not the username and hostname.)
 - _Soft colors:_ Soft colors are used to make it easy to distinguish between different things without over-stimulating the brain.
 - _Instant navigation:_ Navigation is as fast as can be at all levels:
-    1. Most used applications have shortcuts (e.g. super + 1 switches to the write workspace with a terminal in i3, super + 2 switches to the read web workspace with a browser in i3.) No need to search using alt + tab or the activity overview.
+    1. Most used applications have shortcuts (e.g. super + a switches to the write workspace with a terminal in i3, super + s switches to the read web workspace with a browser in i3.) No need to search using alt + tab or the activity overview.
     2. Inside the terminal most used sessions have shortcuts (e.g. tmux prefix + N switches to the notes session in tmux.) Inside the browser most used tabs are have shortcuts (e.g. ctrl + 1 for tab marked first.)
     3. Inside the editor most used files have shortcuts (ctrl + h switches to file marked as first in nvim.) 
 - _Machine independent:_ Reasonable defaults are kept to make working on other machines almost as smooth as personal ones.
@@ -107,3 +107,17 @@ Create profile for new machine:
 ```bash
 touch .profile_$HOSTNAME
 ```
+
+## Tools
+
+**Text Editor**
+
+The most important text editor assessment parameter is performance. The editor should boot almost instantly and the input latency must be very low. If it is not performant it breaks the workflow and leads to frustration.
+
+Neovim is used as main text editor because of its customizability and performance.
+
+Notepad++ is fast, but it is platform dependent, less customizable, and does not support vim motions. 
+
+Vim is used on remote servers. It is not used as main editor because it is harder to customize. Neovim is a fork which uses a well documented and simple scripting language called Lua instead of the arcane Vimscript. It also has native LSP client support.
+
+Visual Studio Code supports LSP clients, supports some vim motions, but is slow to start and react. The built-in terminal sometimes sends different commands than what is typed due to the lagging. Furthermore, the experience feels bloated instead of minimal. The built-in terminal is redundant. It is only helpful for people who cannot quickly switch between the editor and terminal.
