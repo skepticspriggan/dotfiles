@@ -35,4 +35,57 @@ ls.add_snippets("pandoc", {
     i(2, "path"),
     t ")"
   }),
+
+  s({
+    trig = "issue-specific",
+    name = "Specific issue"
+  }, fmt(
+    [[
+      # Issue {}
+
+      **{}?**
+
+      _What are the steps to reproduce the problem?_
+
+      {}
+
+      _What is the expected result?_
+
+      {}
+
+      _What happens instead?_
+
+      {}
+
+      _Answer_
+
+      {}
+    ]], {
+      i(1),
+      i(2),
+      i(3),
+      i(4),
+      i(5),
+      i(0),
+    }
+  )),
+
+  s({
+    trig = "issue-general",
+    name = "General issue"
+  }, fmt(
+    [[
+      # Issue {}
+
+      **{}?**
+
+      _Answer_
+
+      {}
+    ]], {
+      i(1),
+      i(2),
+      i(0),
+    }
+  )),
 })
