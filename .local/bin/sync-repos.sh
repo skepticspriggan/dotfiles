@@ -14,7 +14,7 @@ do
     else
       echo "Sync repo"
       git add -A
-      git commit -m "add changes by ${HOSTNAME}";
+      git commit -m "backup repo";
       git pull
       git push
     fi
