@@ -1,6 +1,6 @@
 local ls = require "luasnip"
 
-ls.add_snippets("pandoc", {
+ls.add_snippets("markdown", {
   s({
     trig = "cb",
     name = "code block"
