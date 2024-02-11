@@ -20,5 +20,6 @@ do
     fi
   else
     echo "No changes"
+    git pull
   fi
 done
