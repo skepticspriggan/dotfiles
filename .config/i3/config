@@ -49,6 +49,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl play-pause
 
+bindsym XF86MonBrightnessDown exec --no-startup-id xrandr | grep " primary " | awk '{ print$1 }' | head -n 1 | xargs -I % xrandr --output % --brightness 0.7
+bindsym XF86MonBrightnessUp exec --no-startup-id xrandr | grep " primary " | awk '{ print$1 }' | head -n 1 | xargs -I % xrandr --output % --brightness 1.0
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
