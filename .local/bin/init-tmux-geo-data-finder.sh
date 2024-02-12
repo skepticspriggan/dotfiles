@@ -31,7 +31,7 @@ tmux send -t $SESSION:$WINDOW.1 './vendor/bin/phpunit' ENTER
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.2 'git status'
 sleep 0.3
-tmux send -t $SESSION:$WINDOW.3 'composer update'
+tmux send -t $SESSION:$WINDOW.3 'composer install'
 
 if [ "$TERM_PROGRAM" = tmux ]; then
   tmux switch-client -t $SESSION:2.2
