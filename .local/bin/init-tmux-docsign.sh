@@ -1,14 +1,13 @@
 #!/bin/bash
 
+. tmux_exists.sh
+. tmux_switch.sh
+
 SESSION="docsign"
 SESSION_PATH="$REMOTE_REPOS_PATH/docsign"
 
-if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
-  else
-    tmux attach -t $SESSION
-  fi
+if tmux_exists $SESSION; then
+  tmux_switch $SESSION
   exit 1
 fi
 
@@ -38,8 +37,4 @@ tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-docsign-prod'
 
-if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION
-else
-  tmux attach -t $SESSION
-fi
+tmux_switch $SESSION

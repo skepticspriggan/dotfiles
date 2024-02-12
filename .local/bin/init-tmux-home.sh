@@ -1,13 +1,12 @@
 #!/bin/bash
 
-SESSION="home"
+. tmux_exists.sh
+. tmux_switch.sh
 
-if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
-  else
-    tmux attach -t $SESSION
-  fi
+SESSION="home"
+ 
+if tmux_exists $SESSION; then
+  tmux_switch $SESSION:1.1
   exit 1
 fi
 
@@ -26,8 +25,4 @@ tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.1 'dgit status' ENTER
 
-if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION:2.1
-else
-  tmux attach -t $SESSION:2.1
-fi
+tmux_switch $SESSION:1.1

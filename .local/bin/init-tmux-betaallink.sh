@@ -1,13 +1,12 @@
 #!/bin/bash
 
+. tmux_exists.sh
+. tmux_switch.sh
+
 SESSION="betaallink"
 
-if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
-  else
-    tmux attach -t $SESSION
-  fi
+if tmux_exists $SESSION; then
+  tmux_switch $SESSION:1.1
   exit 1
 fi
 
@@ -27,13 +26,13 @@ tmux new-window -n $WINDOW -c $SESSION_PATH
 tmux split-window -v -c $SESSION_PATH
 tmux split-window -h -c $SESSION_PATH
 tmux selectp -t 1
-tmux split-window -h -c $WORK_SCRIPTS_PATH
+tmux split-window -h -c $SESSION_PATH
 
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.4 'sudo service docker start; cd .docker && ./run.sh'
 tmux send -t $SESSION:$WINDOW.1 'git status'
 tmux send -t $SESSION:$WINDOW.3 'docker exec -it php-apache /bin/bash'
-tmux send -t $SESSION:$WINDOW.2 './deploy-betaallink-to-production.sh'
+tmux send -t $SESSION:$WINDOW.2 'deploy-betaallink-to-production.sh'
 
 WINDOW="monitor"
 
@@ -59,8 +58,4 @@ tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-betaallink-prod'
 
-if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION
-else
-  tmux attach -t $SESSION
-fi
+tmux_switch $SESSION:1.1

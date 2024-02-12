@@ -1,13 +1,12 @@
 #!/bin/bash
 
-SESSION="tower-of-hanoi"
+. tmux_exists.sh
+. tmux_switch.sh
 
-if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
-  else
-    tmux attach -t $SESSION
-  fi
+SESSION="tower-of-hanoi"
+ 
+if tmux_exists $SESSION; then
+  tmux_switch $SESSION:1.1
   exit 1
 fi
 
@@ -33,8 +32,4 @@ tmux send -t $SESSION:$WINDOW.2 'git status'
 sleep 0.3
 tmux send -t $SESSION:$WINDOW.3 'go test .'
 
-if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION:2.2
-else
-  tmux attach -t $SESSION:2.2
-fi
+tmux_switch $SESSION:1.1

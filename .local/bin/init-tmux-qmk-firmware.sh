@@ -2,17 +2,15 @@
 
 #set -euxo pipefail
 
-SESSION="qmk-firmware"
+. tmux_exists.sh
+. tmux_switch.sh
 
-if pgrep -xo "tmux: server" > /dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
-  else
-    tmux attach -t $SESSION
-  fi
+SESSION="qmk-firmware"
+ 
+if tmux_exists $SESSION; then
+  tmux_switch $SESSION:1.1
   exit 1
 fi
-
 
 SESSION_PATH="$REPOS_PATH/qmk_firmware"
 tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
@@ -30,8 +28,4 @@ sleep 0.2
 tmux send -t $SESSION:$WINDOW 'qmk compile -kb crkbd/rev1 -km skepticspriggan -e CONVERT_TO=elite_pi'
 
 
-if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION:1
-else
-  tmux attach -t $SESSION:1
-fi
+tmux_switch $SESSION:1.1

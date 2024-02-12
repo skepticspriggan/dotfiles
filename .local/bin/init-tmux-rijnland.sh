@@ -1,16 +1,16 @@
 #!/bin/bash
 
-SESSION="rijnland"
-SESSION_PATH="$REMOTE_REPOS_PATH/rijnland"
+. tmux_exists.sh
+. tmux_switch.sh
 
-if pgrep -xo "tmux: server" >/dev/null && [[ -n "$(tmux ls | grep $SESSION)" ]]; then
-  if [ "$TERM_PROGRAM" = tmux ]; then
-    tmux switch-client -t $SESSION
-  else
-    tmux attach -t $SESSION
-  fi
+SESSION="rijnland"
+
+if tmux_exists $SESSION; then
+  tmux_switch $SESSION:1.1
   exit 1
 fi
+
+SESSION_PATH="$REMOTE_REPOS_PATH/rijnland"
 
 tmux -2 new-session -d -s $SESSION -c $SESSION_PATH
 
@@ -38,8 +38,4 @@ tmux new-window -n $WINDOW -t $SESSION:
 sleep 0.3;
 tmux send -t $SESSION:$WINDOW 'ssh s2-rijnland'
 
-if [ "$TERM_PROGRAM" = tmux ]; then
-  tmux switch-client -t $SESSION
-else
-  tmux attach -t $SESSION
-fi
+tmux_switch $SESSION:1.1
