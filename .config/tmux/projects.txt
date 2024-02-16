@@ -9,6 +9,7 @@ file-handler
 geo-data-finder
 home
 importer
+landbouwloket
 lpnh
 notes
 opinionfirst
