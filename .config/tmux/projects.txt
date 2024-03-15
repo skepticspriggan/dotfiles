@@ -16,6 +16,7 @@ opinionfirst
 qmk-firmware
 rijnland
 statusportaal
+subsidy-calculator
 tankcollect
 tobias
 tower-of-hanoi
