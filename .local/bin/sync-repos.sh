@@ -21,5 +21,6 @@ do
   else
     echo "No changes"
     git pull
+    git push
   fi
 done
