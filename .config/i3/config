@@ -9,6 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+# run `xev | grep "keysym"` to find key name
+
 # set left alt as mod key
 # set $mod Mod1
 
