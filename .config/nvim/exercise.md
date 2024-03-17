@@ -78,3 +78,20 @@ Notes:
 - Group the keys together in one fluid motion
   - r-shift, v, y, p
   - r-shift, v, d
+
+_Add comma or semicolon to end of lines_
+
+```
+$array = [
+  1,
+  2
+  3,
+];
+
+echo $array[0]
+```
+
+Notes:
+
+- Group the keys together in one fluid motion
+  - `A`, `,`, `esc`
