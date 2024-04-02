@@ -73,6 +73,10 @@ _Delete all 'bar's_
 foo bar foo foo bar bar foo foo bar foo
 ```
 
+Notes:
+
+- fb, dw, ;, dp, etc.
+
 _Duplicate and delete lines 10x_
 
 ```
