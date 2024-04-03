@@ -19,6 +19,12 @@ Notes:
   - F,
   - P
 
+_Swap docblock annotation sections_
+
+```
+/** @var yii\web\View $this */
+```
+
 _Swap function content_
 
 ```
