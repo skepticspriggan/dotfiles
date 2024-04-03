@@ -2,6 +2,8 @@
 
 set -euxo pipefail
 
+echo "sync coarse repos"
+
 for REPO in 'notes' \
   'notes-custom-pixels'
 do
@@ -24,3 +26,23 @@ do
     git push
   fi
 done
+
+echo "sync fine grained repos" 
+
+cd $HOME
+echo "dotfiles"
+DGIT="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+if [[ $($DGIT status --porcelain) ]]; then
+  echo "Changes"
+  if [ -f ".git/MERGE_HEAD" ]; then
+    echo "Merge conflict"
+  else
+    echo "Pull repo"
+    $DGIT stash
+    $DGIT pull
+    $DGIT stash apply
+  fi
+else
+  echo "No changes"
+  $DGIT pull
+fi
