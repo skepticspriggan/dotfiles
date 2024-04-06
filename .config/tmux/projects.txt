@@ -3,8 +3,8 @@ betaallink
 bootstrap
 cmp-reference
 dawbodem
-docsign
 docs
+docsign
 file-handler
 geo-data-finder
 home
@@ -24,3 +24,4 @@ tobias
 tower-of-hanoi
 yii2
 yii2-post-log-target
+yii2-symfonymailer
