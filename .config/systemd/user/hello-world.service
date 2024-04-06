@@ -1,0 +1,11 @@
+[Unit]
+Description=Hello daemon
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/hello-world-daemon.sh
+StandardOutput=file:%h/hello-world-daemon.log
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
