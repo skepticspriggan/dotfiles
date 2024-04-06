@@ -105,3 +105,14 @@ Notes:
 
 - Group the keys together in one fluid motion
   - `A`, `,`, `esc`
+
+_Use getter instead of property_
+
+```
+$object->attribute;
+```
+
+Notes:
+
+- $, b, i "getA", del
+- e, a, "(", ")"
