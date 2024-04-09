@@ -12,4 +12,3 @@ if [ -s /tmp/to-past.txt ]; then
 fi
 
 awk -v date="$(date +'%F')" '$1 >= date { print$0 }' $NOTES_DIRECTORY/1-office/calendar-future.txt > /tmp/calendar-future.txt && mv /tmp/calendar-future.txt $NOTES_DIRECTORY/1-office/calendar-future.txt
-
