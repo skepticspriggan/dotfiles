@@ -8,4 +8,4 @@ StandardOutput=file:%h/hello-world-daemon.log
 Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
