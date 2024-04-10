@@ -12,7 +12,7 @@ fi
 
 SESSION_PATH="$REPOS_PATH/$SESSION"
 if [ ! -d $SESSION_PATH ]; then
-  git clone git@gitlab.vrest.com:shapehub/shape_feedback_v1.git $SESSION_PATH
+  git clone git@bitbucket.org-dev:custompixels/shape.git $SESSION_PATH
 fi
 
 tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
