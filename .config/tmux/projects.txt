@@ -19,6 +19,7 @@ office
 opinionfirst
 qmk-firmware
 rijnland
+shape
 statusportaal
 subsidy-calculator
 tankcollect
