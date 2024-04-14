@@ -111,3 +111,76 @@ end)
 vim.keymap.set({ "n", "v", "i" }, "<A-l>", function()
   moveField(directions.right)
 end)
+
+function fieldNameToIndex(name)
+  local header = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), 0, 1, false)[1]
+  a, _ = string.find(header, name)
+  local left = string.sub(header, 0, a)
+  return count(left, ",")
+end
+
+function fillField(row, index, value)
+  local line = vim.api.nvim_buf_get_lines(vim.api.nvim_get_current_buf(), row - 1, row, false)[1]
+  local fieldCount = count(line, ",") + 1
+  vim.api.nvim_win_set_cursor(0, {row, 0})
+  local fields = split(line, ",")
+  -- P(fields)
+
+  local keysString = ""
+  if fieldCount == 1 then
+    if fields[1] == "" then
+      keysString = "<Esc>i" .. value
+    else
+      keysString = "<Esc>0v$c" .. value
+    end
+  else
+    if index == 0 then
+      if fields[1] == "" then
+        keysString = "<Esc>i" .. value
+      else
+        keysString = "<Esc>0vt,c" .. value
+      end
+    elseif index == (fieldCount - 1) then
+      if fields[index + 1] == "" then
+        keysString = "<Esc>$a" .. value
+      else
+        keysString = "<Esc>$vT,c" .. value
+      end
+    else
+      if fields[index + 1] == "" then
+        keysString = "<Esc>0" .. index .. "f,a" .. value
+      else
+        keysString = "<Esc>0" .. index .. "f,lvt,c" .. value
+      end
+    end
+  end
+  
+  local keys = vim.api.nvim_replace_termcodes(keysString, true, false, true)
+  vim.api.nvim_feedkeys(keys, "n", false)
+end
+
+vim.keymap.set({ "n" }, "<A-i>", function()
+  local currentRow, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  local line = vim.api.nvim_get_current_line()
+  local rows = {
+    {
+      ["keyword"] = "AB Vakwerk",
+      ["category%-1"] = "werk", -- the dash is a special character in patterns that needs to be escaped
+      ["category%-2"] = "uitzendkracht",
+      ["type"] = "income",
+      ["account"] = "Betaalrekening",
+      ["recurring"] = 1,
+      ["by"] = "A",
+      ["for"] = "A"
+    }
+  }
+  for _, row in ipairs(rows) do
+    if string.find(line, row["keyword"]) then
+      for key, value in pairs(row) do
+        if key ~= "keyword" then
+          fillField(currentRow, fieldNameToIndex(key), row[key])
+        end
+      end
+    end
+  end
+end)
