@@ -147,6 +147,7 @@ fi
 
 bind -m emacs-standard '"\C-g": " \C-b\C-k \C-u`__fzf_cd__`\e\C-e\er\C-m\C-y\C-h\e \C-y\ey\C-x\C-x\C-d"'
 bind -m emacs-standard -x '"\C-f": "tmux-fzf.sh"'
+bind -m emacs-standard -x '"\C-o": "snippet-fzf.sh"'
 
 #set -o vi
 

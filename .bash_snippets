@@ -1,0 +1,4 @@
+yt-dlp --extract-audio --audio-format mp3 --audio-quality 192K https://www.youtube.com/watch?v=
+ssh -vT hg@bitbucket.org
+xev | grep "keysym"
+xprop | grep -i 'class'
