@@ -2,3 +2,7 @@ yt-dlp --extract-audio --audio-format mp3 --audio-quality 192K https://www.youtu
 ssh -vT hg@bitbucket.org
 xev | grep "keysym"
 xprop | grep -i 'class'
+git config --local user.email "skepticspriggan@protonmail.com"
+git config --local user.name "Skeptic Spriggan"
+git config --local user.email "tim@custompixels.nl"
+git config --local user.name "Tim Dijkstra"
