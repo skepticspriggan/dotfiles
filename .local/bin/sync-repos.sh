@@ -28,7 +28,7 @@ do
   fi
 done
 
-echo "sync fine grained repos" 
+echo "sync fine grained repos"
 
 for REPO in 'advent-of-code' \
   'authentication-attempt-limiter' \

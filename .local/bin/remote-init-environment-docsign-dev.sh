@@ -8,7 +8,7 @@ if [[ -n "$(tmux ls | grep $SESSION)" ]]; then
 fi
 
 SESSION_PATH="/var/www/clients/client3/web22/web"
-tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
+tmux -2 new-session -d -s $SESSION -c $SESSION_PATH
 
 WINDOW="editor"
 

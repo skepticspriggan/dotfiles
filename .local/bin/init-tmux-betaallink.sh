@@ -11,7 +11,7 @@ if tmux_exists $SESSION; then
 fi
 
 SESSION_PATH="$REPOS_PATH/betaallink"
-tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
+tmux -2 new-session -d -s $SESSION -c $SESSION_PATH
 
 WINDOW="editor"
 
@@ -36,25 +36,25 @@ tmux send -t $SESSION:$WINDOW.2 'deploy-betaallink-to-production.sh'
 
 WINDOW="monitor"
 
-tmux new-window -n $WINDOW -t $SESSION -c $SESSION_PATH 
+tmux new-window -n $WINDOW -t $SESSION -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'docker exec -it php-apache /bin/bash -c "tail -f -n 100 /var/www/logs/app.log | grep "error""'
 
 WINDOW="dev"
 
-tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH 
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-betaallink-dev'
 
 WINDOW="stage"
 
-tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH 
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-betaallink-stage'
 
 WINDOW="prod"
 
-tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH 
+tmux new-window -n $WINDOW -t $SESSION: -c $SESSION_PATH
 sleep 0.3
 tmux send -t $SESSION:$WINDOW 'ssh mx10-betaallink-prod'
 

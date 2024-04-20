@@ -12,7 +12,7 @@ fi
 
 SESSION_PATH="$REPOS_PATH/importer"
 mkdir -p $SESSION_PATH
-tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
+tmux -2 new-session -d -s $SESSION -c $SESSION_PATH
 
 WINDOW="editor"
 

@@ -15,7 +15,7 @@ if [ ! -d $SESSION_PATH ]; then
   git clone git@bitbucket.org-dev:custompixels/shape.git $SESSION_PATH
 fi
 
-tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
+tmux -2 new-session -d -s $SESSION -c $SESSION_PATH
 
 WINDOW="editor"
 

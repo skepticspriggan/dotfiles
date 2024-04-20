@@ -4,7 +4,7 @@
 . tmux_switch.sh
 
 SESSION="statusportaal"
- 
+
 if tmux_exists $SESSION; then
   tmux_switch $SESSION:1.1
   exit 1

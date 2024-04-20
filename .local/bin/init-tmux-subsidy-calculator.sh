@@ -11,7 +11,7 @@ if tmux_exists $SESSION; then
 fi
 
 SESSION_PATH="$REPOS_PATH/$SESSION"
-tmux -2 new-session -d -s $SESSION -c $SESSION_PATH 
+tmux -2 new-session -d -s $SESSION -c $SESSION_PATH
 
 WINDOW="editor"
 
