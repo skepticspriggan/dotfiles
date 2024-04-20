@@ -6,3 +6,4 @@ git config --local user.email "skepticspriggan@protonmail.com"
 git config --local user.name "Skeptic Spriggan"
 git config --local user.email "tim@custompixels.nl"
 git config --local user.name "Tim Dijkstra"
+find . -type f -name '*.php' -exec sed --in-place 's/[[:space:]]\+$//' {} \+
