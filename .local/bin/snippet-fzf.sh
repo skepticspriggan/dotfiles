@@ -2,4 +2,4 @@
 
 #set -euxo pipefail
 
-xdotool type "$(cat .bash_snippets | fzf)"
+xdotool type "$(cat ~/.bash_snippets | fzf)"
