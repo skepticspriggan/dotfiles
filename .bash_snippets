@@ -6,4 +6,5 @@ git config --local user.email "skepticspriggan@protonmail.com"
 git config --local user.name "Skeptic Spriggan"
 git config --local user.email "tim@custompixels.nl"
 git config --local user.name "Tim Dijkstra"
-find . -type f -name '*.php' -exec sed --in-place 's/[[:space:]]\+$//' {} \+
+find . -type f -name '*.php' xargs -I{} sed --in-place 's/[[:space:]]\+$//' {}
+dgit ls-files | grep "\.lua\|\.sh\|\.php|\.md\|\.txt" | xargs -I{} sed --in-place 's/[[:space:]]\+$//' {}
