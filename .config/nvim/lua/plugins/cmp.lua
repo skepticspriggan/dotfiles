@@ -24,7 +24,7 @@ return {
     local luasnip = require 'luasnip'
     require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
     luasnip.config.setup {
-      updateevents = "TextChanged,TextChangedI" --updates all nodes when typing in one 
+      updateevents = "TextChanged,TextChangedI" --updates all nodes when typing in one
     }
 
     vim.keymap.set({"i", "s"}, "<C-j>", function() luasnip.expand_or_jump() end, {silent = true})

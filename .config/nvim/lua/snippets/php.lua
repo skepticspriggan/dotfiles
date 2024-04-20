@@ -64,7 +64,7 @@ ls.add_snippets("php", {
   s("fn",
     fmt(
       [[
-        public static function {}To{}(${}): 
+        public static function {}To{}(${}):
         {{
             if(!isset(self::{}S_BY_{}[ ${} ])) {{
                 throw new \Exception('Invalid {}.');
@@ -89,7 +89,7 @@ ls.add_snippets("php", {
   s("fnto",
     fmt(
       [[
-        public static function {}To{}(${}): 
+        public static function {}To{}(${}):
         {{
             if(!isset(self::{}S_BY_{}[ ${} ])) {{
                 throw new \Exception('Invalid {}.');

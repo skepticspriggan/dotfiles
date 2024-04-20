@@ -20,7 +20,7 @@ local filter_diagnostics = function(diagnostics, level)
   end
   return subset
 end
- 
+
 M.set_level = function(level)
   -- Register our custom handler
   vim.diagnostic.handlers.underline = {

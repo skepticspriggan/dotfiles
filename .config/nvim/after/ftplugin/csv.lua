@@ -58,7 +58,7 @@ function selectField(row, index)
       end
     end
   end
-  
+
   local keys = vim.api.nvim_replace_termcodes(keysString, true, false, true)
   vim.api.nvim_feedkeys(keys, "n", false)
 end
@@ -154,7 +154,7 @@ function fillField(row, index, value)
       end
     end
   end
-  
+
   local keys = vim.api.nvim_replace_termcodes(keysString, true, false, true)
   vim.api.nvim_feedkeys(keys, "n", false)
 end
