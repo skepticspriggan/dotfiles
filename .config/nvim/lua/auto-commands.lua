@@ -10,6 +10,11 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  callback = function ()
+    local view = vim.fn.winsaveview()
+    vim.cmd [[keeppatterns %s/\s\+$//e]]
+    vim.cmd "update"
+    vim.fn.winrestview(view)
+  end,
   pattern = { "*" },
-  command = [[%s/\s\+$//e]],
 })
