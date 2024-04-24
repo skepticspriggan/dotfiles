@@ -45,6 +45,7 @@ vim.keymap.set("i", "<C-Del>", "X<Esc>c/\\S<CR>", { desc = 'Delete until next wh
 vim.keymap.set("i", "<C-d>", "X<Esc>c/\\S<CR><Esc>gJi", { desc = 'Delete until and including next whitespace' })
 vim.keymap.set("n", "<leader>u", "/\\u<CR>", { desc = 'Move to next upper case letter' })
 vim.keymap.set("n", "<leader>r", ": source $MYVIMRC<CR>", { desc = 'Reload nvim config' })
+vim.keymap.set("n", "<leader>fa", [[:s/\S\zs=>\ze\S/ => /gc]], { desc = 'Add whitespaces around arrows' })
 
 vim.keymap.set("n", "<leader>gf", function()
   local basename = vim.fn.expand("<cfile>:t:r")
