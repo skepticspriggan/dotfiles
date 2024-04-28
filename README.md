@@ -115,7 +115,7 @@ crontab -l | cat - <(echo "PATH=\"$PATH\"") \
   <(echo "ENV_VARS=\"$HOME/.profile_$HOSTNAME\"") \
   <(echo '') \
   <(echo "0 * * * * . \$ENV_VARS && sync-repos.sh 2>&1 $HOME/logs/sync-repos.log") \
-  <(echo "* * * * * . \$ENV_VARS && archive-past-calendar-events.sh 2>&1 $HOME/logs/archive-past-calendar-events.log") \
+  <(echo "0 */6 * * * . \$ENV_VARS && archive-past-calendar-events.sh 2>&1 $HOME/logs/archive-past-calendar-events.log") \
   <(echo "0 */2 * * * . \$ENV_VARS && archive-done-tasks.sh 2>&1 $HOME/logs/archive-done-tasks.log") \
   | crontab -
 ```
