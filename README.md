@@ -9,7 +9,7 @@ A repository of personal machine configuration files to easily share the same co
 - _Instant navigation:_ Navigation is as fast as can be at all levels:
     1. Most used applications have shortcuts (e.g. super + a switches to the write workspace with a terminal in i3, super + s switches to the read web workspace with a browser in i3.) No need to search using alt + tab or the activity overview.
     2. Inside the terminal most used sessions have shortcuts (e.g. tmux prefix + N switches to the notes session in tmux.) Inside the browser most used tabs are have shortcuts (e.g. ctrl + 1 for tab marked first.)
-    3. Inside the editor most used files have shortcuts (ctrl + h switches to file marked as first in nvim.) 
+    3. Inside the editor most used files have shortcuts (ctrl + h switches to file marked as first in nvim.)
 - _Machine independent:_ Reasonable defaults are kept to make working on other machines almost as smooth as personal ones.
 
 ## Usage Examples
@@ -108,6 +108,33 @@ Create profile for new machine:
 touch .profile_$HOSTNAME
 ```
 
+Install cronjobs:
+
+```bash
+crontab -l | cat - <(echo "PATH=\"$PATH\"") \
+  <(echo "ENV_VARS=\"$HOME/.profile_$HOSTNAME\"") \
+  <(echo '') \
+  <(echo "0 * * * * . \$ENV_VARS && sync-repos.sh 2>&1 $HOME/logs/sync-repos.log") \
+  <(echo "* * * * * . \$ENV_VARS && archive-past-calendar-events.sh 2>&1 $HOME/logs/archive-past-calendar-events.log") \
+  <(echo "0 */2 * * * . \$ENV_VARS && archive-done-tasks.sh 2>&1 $HOME/logs/archive-done-tasks.log") \
+  | crontab -
+```
+
+Enable logging for debugging purposes:
+
+Uncomment the following line in '/etc/rsyslog.d/50-default.conf' to log crontab messages to `/var/log/cron.log`:
+
+```
+cron.*                         /var/log/cron.log
+```
+
+Restart rsyslog and cron:
+
+```bash
+sudo service rsyslog restart
+sudo service cron restart
+```
+
 ## Tools
 
 **Text Editor**
@@ -116,7 +143,7 @@ The most important text editor assessment parameter is performance. The editor s
 
 Neovim is used as main text editor because of its customizability and performance.
 
-Notepad++ is fast, but it is platform dependent, less customizable, and does not support vim motions. 
+Notepad++ is fast, but it is platform dependent, less customizable, and does not support vim motions.
 
 Vim is used on remote servers. It is not used as main editor because it is harder to customize. Neovim is a fork which uses a well documented and simple scripting language called Lua instead of the arcane Vimscript. It also has native LSP client support.
 
