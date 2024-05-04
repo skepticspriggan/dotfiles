@@ -2,19 +2,20 @@
 
 # set -euxo pipefail
 
-date_pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2} w[0-9]* (Mon|Tue|Wed|Thu|Fri|Sat|Sun)+"
+#date_pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2} w[0-9]* (Mon|Tue|Wed|Thu|Fri|Sat|Sun)+"
+date_pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2} w[0-9]* [1-7]{1}"
 week_pattern="^[0-9]{4}-[0-9]{2}-[0-9]{2} w[0-9]*"
 
 last_date=""
 
 awk -v start="$(date +'%F')" \
   -v end="$(date -d '+5 weeks' +'%F')" \
-  '$1 > start && $1 < end { print$0 }' $NOTES_DIRECTORY/1-office/calendar.txt \
+  '$1 >= start && $1 < end { print$0 }' $NOTES_DIRECTORY/1-office/calendar.txt \
   | while read date; do
   echo -n $date
   awk -v start="$(date +'%F')" \
     -v end="$(date -d '+5 weeks' +'%F')" \
-    '$1 < end && $1 > start { print$0 }' $NOTES_DIRECTORY/1-office/events-onetime.txt \
+    '$1 >= start && $1 < end { print$0 }' $NOTES_DIRECTORY/1-office/events-onetime.txt \
     | while read event; do
     if echo $event | grep -qE "$date_pattern"; then
       event_date=$(echo $event | grep -oE "$date_pattern")
