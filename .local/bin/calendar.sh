@@ -35,6 +35,17 @@ awk -v start="$(date +'%F')" \
       last_date=$event_date
     fi
   done
+  awk '{ print$0 }' $NOTES_DIRECTORY/1-office/events-recurring.txt \
+    | while read event; do
+    if echo $event | grep -qE "^[0-9]{2}-[0-9]{2}"; then
+      event_date=$(echo $event | grep -oE "^[0-9]{2}-[0-9]{2}")
+      if [[ $date == *"$event_date"* ]]; then
+        event_description_position=$(("${#event_date}" + 1))
+        event_description="${event:6}"
+        echo -n " $event_description"
+      fi
+    fi
+  done
   echo
 done
 
