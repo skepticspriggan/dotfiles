@@ -8,3 +8,4 @@ git config --local user.email "tim@custompixels.nl"
 git config --local user.name "Tim Dijkstra"
 find . -type f -name '*.php' xargs -I{} sed --in-place 's/[[:space:]]\+$//' {}
 git ls-files | grep "\.lua\|\.sh\|\.php\|\.md\|\.txt" | xargs -I{} sed --in-place 's/[[:space:]]\+$//' {}
+echo "scale=2;3/4" | bc
